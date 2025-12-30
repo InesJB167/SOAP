@@ -1,0 +1,1 @@
+//this  file manage the main ativity of the app

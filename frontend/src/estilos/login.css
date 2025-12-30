@@ -1,0 +1,131 @@
+@charset 'UTF-8';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*create general variables*/
+:root{
+    /*font styles*/
+    --font1: "Inter", sans-serif;
+    --font2: "Roboto", sans-serif;
+    --font3: "Open Sans", sans-serif;
+
+    /*pallete*/
+    --color1: #0A58BF;
+    --color2: #084F8C;
+    --color3: #073359;
+    --color4: #05DBF2;
+    --color5: #05F2F2;
+}
+
+/*take the padding and margin of all elements*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+     background: linear-gradient(
+    135deg,
+    rgba(20,20,20,1),
+    rgba(30,30,30,1),
+    rgba(18,18,18,1)
+  );                     
+}
+
+main{
+    width: 700px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(
+    135deg,
+    rgba(20,20,20,1),
+    rgba(30,30,30,1),
+    rgba(18,18,18,1)
+  );
+    color: #fff;
+    /*to be transparent*/
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    font-family: var(--font3);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    padding: 10px;
+}
+
+#left{
+    background: linear-gradient(39deg, #0a58bf,#05dbf2,#073359);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */                                             
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#center{
+    position: absolute;
+    top: 70%;
+}
+
+main h1{
+    font-size: 2rem;
+    color: var(--color2);
+}
+
+#right{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#right h1{
+    text-align: center;
+}
+
+div.space{
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    width: 250px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form input{
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.556) ;
+    padding: 10px;
+}
+
+form button{
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.1rem;                                           background: linear-gradient(39deg, #0a58bf,#05dbf2,#073359);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */                          
+    cursor: pointer;            
+}
+
+form button:hover{
+    transform: translateY(-10%);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.469);
+    border: 1px solid var(--color4);
+}
+
+form p{
+    text-align: center;
+    font-size: 1rem;
+}
+
+form p a {
+    text-decoration: none;
+    color: var(--color1);
+}
