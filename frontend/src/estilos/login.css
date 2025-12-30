@@ -44,7 +44,7 @@ main{
     background: linear-gradient(
     135deg,
     rgba(20,20,20,1),
-    rgba(30,30,30,1),
+    rgba(83, 83, 83, 0.599),
     rgba(18,18,18,1)
   );
     color: #fff;
