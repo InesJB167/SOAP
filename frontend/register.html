@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="src/estilos/register.css">
+    <title>SOAP-Login</title>
+
 </head>
 <body>
-    
+    <main>
+        <div id="left">
+            <h1>Register Account</h1>
+            <form action="@" autocomplete="off">
+                
+                <div class="space">
+                <label for="lname">User name:</label>
+                <input type="text" name="name" id="lname" placeholder="User name" required></div>
+                
+                <div class="space">
+                    <label for="lemail">Email:</label>
+                    <input type="email" name="email" id="lemail" placeholder="Your email" required>
+                </div>
+                <div class="space">
+                    <label for="lcurso">Hight Shool course:</label>
+                    <input type="text" name="course" id="lcurso" required>
+                </div>
+                <div class="space">
+                    <label for="lsenha">Password:</label>
+                    <input type="password" name="password" id="lsenha" placeholder="Enter your password" required>
+                </div>
+                <div class="space">
+                    <button>Register Account</button>
+                    <p><a href="login.html">Login!</a></p>
+                </div>
+
+            </form>
+        </div>
+        
+        
+    </main>
 </body>
 </html>
