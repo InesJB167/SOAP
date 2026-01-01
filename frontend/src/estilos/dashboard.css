@@ -1,0 +1,189 @@
+@charset 'UTF-8';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*create general variables*/
+:root{
+    /*font styles*/
+    --font1: "Inter", sans-serif;
+    --font2: "Roboto", sans-serif;
+    --font3: "Open Sans", sans-serif;
+
+    /*pallete*/
+    --color1: #0A58BF;
+    --color2: #084F8C;
+    --color3: #073359;
+    --color4: #05DBF2;
+    --color5: #05F2F2;
+    --color6: rgba(20,20,20,1);
+    --color7: rgba(83, 83, 83, 0.599);
+    --color8: rgba(18,18,18,1);
+}
+
+/*take the padding and margin of all elements*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: #0000003e;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 20% 2fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: 
+    'aside header'
+    'aside main';
+}
+
+.aside{
+    padding: 20px;
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--color5);
+}
+
+.logo-top{
+    padding: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    gap: 10px;
+    border: 1px solid black;
+}
+
+#logo{
+    font-size: 50px;
+    line-height: 1;
+}
+
+.logo-top h2{
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1;
+    position: relative;
+    top: 4px;
+}
+
+.items{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid black;
+   
+}
+
+.material-symbols-outlined{
+    font-size: 30px;
+}
+
+.aside-buttons{
+    width: 185px;
+}
+
+.aside-buttons a{
+    text-decoration: none;
+    color: var(--color3);
+    position: relative;
+    bottom: 7px;
+    font-size: 1.3rem;
+}
+
+aside > .buttons{
+    padding: 10px;
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons button{
+    width: 180px;
+    height: 30px;
+}
+
+.header{
+    grid-area: header;
+    background-color: var(--color3);
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+#search{
+    border-radius: 20px;
+    width: 340px;
+    height: 34px;
+    padding: 2px;
+    display: flex;
+    gap: 0;
+}
+
+input{
+    width: 300px;
+    height: 32px;
+    border-radius: 20px 0px 0px 20px;
+    padding: 10px;
+}
+
+#search button{
+    width: 40px;
+    height: 30px;
+    font-size: 1.7rem;
+    border-radius: 0px 20px 20px 0px;
+    border: none;
+    padding: 5px;
+    position: relative;
+    top: 1px;
+}
+
+#theme{
+    display: flex;
+    width: 115px;
+    height: 35px;
+    gap: 0;
+    border-radius: 20px 0px 0px 20px;
+}
+
+#theme span{
+    width: 60px;
+    height: 35px;
+}
+
+#btn-l{
+    border-radius: 20px 0px 0px 20px;
+    border: none;
+}
+
+#btn-r{
+    border-radius: 0px 20px 20px 0px;
+    border: none;
+}
+
+
+.header-buttons{
+    width: 200px;
+    border-radius: 20px;
+    padding: 5px;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.header-buttons a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.3rem;
+    position: relative;
+    bottom: 9px;
+}
+
+.main{
+    grid-area: main;
+    background-color: var(--color1);
+}

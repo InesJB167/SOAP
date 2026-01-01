@@ -3,40 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="src/estilos/dashboard.css">
     <title>SOAP-Dashboard</title>
 </head>
 <body>
-    <aside>
-        <div id="logo-sigla">
-            <label for="lsigla">SOAP</label>
-        </div>
+    <div class="container">
+        <aside class="aside">
 
-        <button href="@">Sobre</button>
-        <button>Cursos</button>
-        <button>Teste</button>
-        <button>Perfil</button>
+            <div class="logo-top">
+                    <span class="material-symbols-outlined" id="logo">school</span>
+                    <h2>SOAP</h2>
+                    <p></p>
+            </div>
 
-        <button>Logout</button>
-    </aside>
-    <header>
-        <label for="lnome">Dashboard</label>
+            <div class="items">
+                <div class="aside-buttons">
+                    <span class="material-symbols-outlined">home</span>
+                    <a href="">Dashboard</a>
+                </div>
+                <!--<div class="aside-buttons">
+                    <img src="" alt="webpage-image">
+                    <a href="SOAP.html">Web page</a>
+                </div>-->
+                <div class="aside-buttons">
+                    <span class="material-symbols-outlined">school</span>
+                    <a href="courses.html">Courses</a>
+                </div>
+                <div class="aside-buttons">
+                    <span class="material-symbols-outlined">list_alt</span>
+                    <a href="test.html">Test</a>
+                </div>
+                <div class="aside-buttons">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    <a href="profile.html">Profile</a>
+                </div>
+            </div>
 
-        <div id="notification">
+            <div class="buttons">
 
-        </div>
-        <button>Manage Accounts</button>
+                <div id="theme" >
+                <button id="btn-l"><span class="material-symbols-outlined">light_mode</span></button>
+                <button id="btn-r"><span class="material-symbols-outlined">dark_mode</span></button>
+                </div>
 
-        <div id="user-image">
+                <button><i class="fi fi-br-power"></i> Logout</button>
+            </div>
+        </aside>
+        <header class="header">
+            <h2>Welcome back User!</h2>
+    
+            <div id="search">
+                <input type="text" name="search" id="lsearch" placeholder="Enter a course name">
+                <button><i class="fi fi-bs-search"></i></button>
+            </div>
+    
+           
 
-        </div>
-
-    </header>
-    <main>
-        <p>31 December, 2025 </p>
-        <h1>Welcome back User!</h1>
-
-        <input type="text" name="search" id="lsearch" placeholder="Enter a course name">
-    </main>
+            <div class="header-buttons">
+                <img src="assets/img/user1.png" alt="user-iumage" id="user-imge" style="width: 30px; height: 30px;">
+                <a href="">Manage Accounts</a>
+            </div>
+    
+            <div id="user-image">
+                <img src="assets/img/user2.png" alt="user-image" style="width: 40px; height: 40px;">
+            </div>
+    
+        </header>
+        <main class="main">
+    
+        </main>
+    </div>
 </body>
 </html>
