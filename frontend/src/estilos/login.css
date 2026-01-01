@@ -15,7 +15,7 @@
     --color3: #073359;
     --color4: #05DBF2;
     --color5: #05F2F2;
-    --color6:  rgba(20,20,20,1);
+    --color6: rgba(20,20,20,1);
     --color7: rgba(83, 83, 83, 0.599);
     --color8: rgba(18,18,18,1);
 }
@@ -29,7 +29,7 @@
 
 body{
     height: 100vh;
-     background: linear-gradient(
+    background: linear-gradient(
     135deg,
     rgba(20,20,20,1),
     rgba(30,30,30,1),
@@ -97,15 +97,15 @@ form{
 
 form input{
     height: 30px;
-    border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.556) ;
     padding: 10px;
+    border-radius: 6px;
 }
 
 form button{
     height: 30px;
-    border-radius: 20px;
     border: none;
+    border-radius: 6px;
     font-size: 1.1rem;
     background: linear-gradient(39deg, #0a58bf,#05dbf2,#073359);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */                          
     cursor: pointer;            
