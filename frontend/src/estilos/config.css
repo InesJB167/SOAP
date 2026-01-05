@@ -37,96 +37,79 @@ main{
     font-family: var(--font3);
 }
 
-h2{
+h2 ,h3{
     color: var(--color3);
-    font-weight: 900;
-    font-size: 1.8rem;
 }
 
-#user-info{
-    border-radius: 10px;
-    background-color: rgba(5, 250, 205, 0.284);
+h2{
+    font-weight: 900;
+}
+
+#user-account{
+    background-color: #fff;
+    border-radius: 8px;
     padding: 10px;
     display: flex;
-    gap: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.225);
-}
-
-#user-description {
-    font-size: 1rem;
-    display: flex;
     flex-direction: column;
-    gap: 5px;
-}
-
-#user-description label{
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-#user-description input{
-    width: 100%;
-    padding: 2px;
-}
-
-img{
-    width: 100px;
-    height: 100px;
-}
-
-section{
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-}
-
-section h3{
-    color: var(--color3);
-}
-
-#curso-medio{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-#double{
-    display: flex;
-    gap: 10%;
-}
-
-#curso-medio label{
-    color: var(--color3);
-    font-weight: 500;
-}
-
-span{
-    color: #000;
-}
-
-#habilidades{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-#divs-habilidades{
-    display: flex;
     gap: 20px;
 }
 
-#divs-habilidades h4{
-    margin-bottom: 10px;
-    font-weight: 500;
-    color: var(--color3);
+label#labelAlt{
+    display: none;
 }
 
-.especial{
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.269);
+#content{
+    display: flex;
+    gap: 10px;
 }
 
-.especial:hover{
+#img{
+    display: flex;
+    flex-direction: column;
+}
+
+#img input{
+    width: 300px;
+}
+
+#img img{
+    width: 100px;
+    height: 100px;
+    background-color: var(--color7);
+}
+
+#user-info{
+    display: flex;
+    flex-direction: column;
+}
+
+#mode{
+    display: flex;
+    gap: 0px;
+    width: 92px;
+    border-radius: 20px;
+    width: 200px;
+}
+
+#mode button{
+    padding: 10px;
     cursor: pointer;
-    transform: translateY(-10%);
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.313);
+    transition: 0.3s;
+    background-color: transparent;
+    border: 1px solid #ccc;/*essa cor é definitivamente MÁGICA torna os elementos transparentes*/
+    width: 100px;
+}
+
+button#dark{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+button#light{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#mode:hover{
+    background-color: #00000020;
 }

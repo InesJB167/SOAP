@@ -7,6 +7,161 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <main>
+        <h2>Profile</h2>
+        <div id="user-info">
+            <div id="img">
+                <img src="assets/img/user1.png" alt="user-image">
+            </div>
+            <div id="user-description">
+                <div id="name">
+                    <label for="lname">Name:</label>
+                    <input type="text" name="name" id="lname">
+                </div>
+                <div id="faixa-etaria">
+                    <label for="lfaixa">Age group:</label>
+                    <select name="option-ages" id="lfaixa">
+                        <option value="15 - 18 anos">15 - 18 anos </option>
+                        <option value="19 - 22 anos"> 19 - 22 anos</option>
+                        <option value="23 - 25 anos">23 - 25 anos</option>
+                    </select>
+                </div>
+                <div id="nivel-escolar">
+                    <label for="lnivel">Atual level:</label>
+                    <select name="level" id="lnivel">
+                        <option value="Ensino Médio">Ensino Médio</option>
+                        <option value="Finalista">Finalista</option>
+                        <option value="Candidato ao Superior">Candidato ao Superior</option>
+                    </select>
+                </div>
+                <div id="status academico">
+                    <p>Academic Status: <span>Oriented</span></p>
+                    <!--em orientaçao .teste concluido ,resultado disponivel: são os possiveis estados pra serem incrementados no banco de dados-->
+                </div>
+            </div>
+        </div>
+
+        <section id="curso-medio">
+            <div id="double">
+                <div id="nome-curso">
+                    <label for="lcurso">Course name:</label>
+                    <select name="curso" id="lcurso">
+                        <option value="Informatic">Informatic</option>
+                        <option value="Management Informatic">Management Informatic</option>
+                    </select>
+                </div>
+                <div id="area">
+                    <label>Area: <span>the course area</span></label>
+                </div>
+            </div>
+            <div id="course-description">
+                <label for="ldesc">Description:</label>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempore deserunt ut rem in possimus dolorum, nostrum natus modi reprehenderit incidunt inventore nemo ex, non quis consectetur perspiciatis id quam.
+                </p>
+            </div>
+        </section>
+
+        <section id="habilidades">
+            <h3>Skills and competencies</h3>
+            <div id="divs-habilidades">
+                <div class="competencias" id="comp-tec">
+                    <h4>Tech skills</h4>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                </div>
+                <div class="competencias" id="behavior">
+                    <h4>Behavioral skills</h4>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                </div>
+                <div class="competencias" id="interest">
+                    <h4>Personal interest</h4>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1">An option here will come from the data base</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="teste" class="especial">
+            <h3>Vacational Test</h3>
+            <p>Informative message: in order to know your college course do the vocational test!</p>
+            
+            <!--
+            <button href="test.html">Vocational text</button>
+            undone test/in progress/finished test
+            if the text wasn't done will apear the button 
+
+            else if the user already made the test will apear this others stufs :
+
+            Finished test
+            Date:##/##/##   Mark/pontuação: 80%
+            Areas de afinidade: will show a ghrafic like a circle u know ..with the percentage of each area u know...
+            -->
+        </section>
+
+        <section id="curso-recomendado" class="especial">
+        <h3>Recomended Course</h3>
+            <p>Message info: Do the vocational test to discover the perfect course for u!</p>
+            <!--
+            <button href="test.html">Vocatonal test</button>
+            if the user already did the test will apear this: 
+
+            Course name: bla bla bla | Grau de compatibilidade: 76%
+            Description: lorem deiur eifne coi eud xwerkh cd3ireuw dj3irjc 3urj31w dm23fdww 3rew dmw19u1 dm13
+            why this option is better for u? Answer: ljdf eojrfm f fcmeoj eofjefdme mrejfmffemfeik
+            -->
+        </section>
+
+        <section id="saidas-prof" class="especial">
+        <h3>Profissional outings</h3>
+            <p>To see the profissional outings first do the vocational test</p>
+            <!--
+            here will have a card on each card will hve a course name ,with his description
+            -->
+        </section>
+    </main>
 </body>
 </html>

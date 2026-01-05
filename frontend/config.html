@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="src/estilos/config.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h2>Settings</h2>
+        <div id="user-account">
+            <h3>User account</h3>
+            <div id="content">
+                <div id="img">
+                    <img src="assets/img/user1.png" alt="User">
+                    <label for="lfoto" id="labelAlt">Alter photo:</label>
+                    <input type="file" name="foto" id="lfoto" accept="image/*">
+                </div>
+                <div id="user-info">
+                    <div id="name">
+                        <label for="lname">User name:</label>
+                        <input type="text" name="name" id="lname">
+                    </div>
+                    <div id="email">
+                        <label for="lemail">Email:</label>
+                        <input type="email" name="email" id="lemail">
+                    </div>
+                    <div id="password">
+                        <p>Password: <span>*******</span></p>
+                        <button>Alter password</button>
+                        <!--after click on this button will open a modal with theses fields:
+                        Senha atual
+                        Nova senha 
+                        Confirmar nova senha 
+                        Botão: Salvar 
+                        Isso é feito com HTML + CSS + JS, não precisa de página nova.-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="tema">
+            <h3>Theme</h3>
+            <div id="mode">
+                <div id="dark-mode">
+                    <button id="dark">
+                        <span class="material-symbols-outlined">dark_mode</span>
+                    </button>
+                </div>
+                <div id="light-mode">
+                    <button id="light">
+                        <span class="material-symbols-outlined">light_mode</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
