@@ -28,6 +28,7 @@
 }
 
 .container{
+    font-family: var(--font3);
     height: 100vh;
     display: grid;
     grid-template-columns: 20% 2fr;
@@ -211,7 +212,7 @@ input{
 .header-buttons a{
     text-decoration: none;
     color: #000;
-    font-size: 1.3rem;
+    font-size: 1rem;
     position: relative;
     bottom: 9px;
 }
