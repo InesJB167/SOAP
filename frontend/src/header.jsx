@@ -1,2 +1,0 @@
-//creating a react component
-
