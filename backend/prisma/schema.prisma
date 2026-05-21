@@ -1,0 +1,224 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model administrador {
+  id_admin      Int                         @id @default(autoincrement())
+  nome          String?                     @db.VarChar(200)
+  nivel_acesso  administrador_nivel_acesso? @default(Gestor_de_Cursos)
+  data_cadastro DateTime?                   @db.DateTime(0)
+  iduser        Int?
+  usuario       usuario?                    @relation(fields: [iduser], references: [iduser], onDelete: Restrict, onUpdate: Restrict, map: "administrador_ibfk_1")
+
+  @@index([iduser], map: "iduser")
+}
+
+model alternativas {
+  id_alternativa                       Int                                    @id @default(autoincrement())
+  alternativa                          String?                                @db.Text
+  opcao                                alternativas_opcao?                    @default(A)
+  idperguntas                          Int?
+  perguntas                            perguntas?                             @relation(fields: [idperguntas], references: [idperguntas], onDelete: Restrict, onUpdate: Restrict, map: "alternativas_ibfk_1")
+  curso_universitario_has_alternativas curso_universitario_has_alternativas[]
+  repostas                             repostas[]
+
+  @@index([idperguntas], map: "idperguntas")
+}
+
+model curso_medio {
+  idcurso_medio       Int                   @id @default(autoincrement())
+  nome_cursoM         String?               @db.VarChar(100)
+  descricao           String?               @db.Text
+  duracao             Int?
+  curso_universitario curso_universitario[]
+  perfil_estudante    perfil_estudante[]
+}
+
+model curso_universitario {
+  idcurso_U                            Int                                    @id @default(autoincrement())
+  nome_cursoU                          String?                                @db.VarChar(100)
+  descricao                            String?                                @db.Text
+  duracao_anos                         Int?
+  idcurso_medio                        Int?
+  curso_medio                          curso_medio?                           @relation(fields: [idcurso_medio], references: [idcurso_medio], onDelete: Restrict, onUpdate: Restrict, map: "curso_universitario_ibfk_1")
+  curso_universitario_has_alternativas curso_universitario_has_alternativas[]
+  curso_universitario_has_habilidades  curso_universitario_has_habilidades[]
+  disciplinas                          disciplinas[]
+  saidas_profissionais                 saidas_profissionais[]
+  teste                                teste[]
+
+  @@index([idcurso_medio], map: "idcurso_medio")
+}
+
+model curso_universitario_has_alternativas {
+  idcurso_U           Int
+  id_alternativa      Int
+  idquantidade        Int
+  curso_universitario curso_universitario @relation(fields: [idcurso_U], references: [idcurso_U], onUpdate: Restrict, map: "curso_universitario_has_alternativas_ibfk_1")
+  alternativas        alternativas        @relation(fields: [id_alternativa], references: [id_alternativa], onUpdate: Restrict, map: "curso_universitario_has_alternativas_ibfk_2")
+  quantidade_ponto    quantidade_ponto    @relation(fields: [idquantidade], references: [idquantidade], onUpdate: Restrict, map: "curso_universitario_has_alternativas_ibfk_3")
+
+  @@id([idcurso_U, id_alternativa])
+  @@index([id_alternativa], map: "id_alternativa")
+  @@index([idquantidade], map: "idquantidade")
+}
+
+model curso_universitario_has_habilidades {
+  idcurso_U           Int
+  idhabilidade        Int
+  habilidades         habilidades         @relation(fields: [idhabilidade], references: [idhabilidade], onUpdate: Restrict, map: "curso_universitario_has_habilidades_ibfk_1")
+  curso_universitario curso_universitario @relation(fields: [idcurso_U], references: [idcurso_U], onUpdate: Restrict, map: "curso_universitario_has_habilidades_ibfk_2")
+
+  @@id([idcurso_U, idhabilidade])
+  @@index([idhabilidade], map: "idhabilidade")
+}
+
+model disciplinas {
+  iddisciplinas       Int                  @id @default(autoincrement())
+  disciplina          String?              @db.VarChar(200)
+  descricao           String?              @db.Text
+  idcurso_U           Int?
+  curso_universitario curso_universitario? @relation(fields: [idcurso_U], references: [idcurso_U], onDelete: Restrict, onUpdate: Restrict, map: "disciplinas_ibfk_1")
+
+  @@index([idcurso_U], map: "idcurso_U")
+}
+
+model habilidades {
+  idhabilidade                        Int                                   @id @default(autoincrement())
+  habilidade                          String?                               @db.VarChar(200)
+  area                                String                                @db.VarChar(255)
+  curso_universitario_has_habilidades curso_universitario_has_habilidades[]
+}
+
+model perfil_estudante {
+  id_estudante      Int                      @id @default(autoincrement())
+  nome              String?                  @db.VarChar(200)
+  data_cadastro     DateTime?                @db.DateTime(0)
+  genero            perfil_estudante_genero? @default(Masculino)
+  iduser            Int?
+  idcurso_medio     Int?
+  usuario           usuario?                 @relation(fields: [iduser], references: [iduser], onDelete: Restrict, onUpdate: Restrict, map: "perfil_estudante_ibfk_1")
+  curso_medio       curso_medio?             @relation(fields: [idcurso_medio], references: [idcurso_medio], onDelete: Restrict, onUpdate: Restrict, map: "perfil_estudante_ibfk_2")
+  perfil_vocacional perfil_vocacional[]
+
+  @@index([idcurso_medio], map: "idcurso_medio")
+  @@index([iduser], map: "iduser")
+}
+
+model perfil_vocacional {
+  idperfil_Vocacional Int               @id @default(autoincrement())
+  data_geracao        DateTime?         @db.DateTime(0)
+  descricao           String?           @db.Text
+  id_estudante        Int?
+  idteste             Int?
+  perfil_estudante    perfil_estudante? @relation(fields: [id_estudante], references: [id_estudante], onDelete: Restrict, onUpdate: Restrict, map: "perfil_vocacional_ibfk_1")
+  teste               teste?            @relation(fields: [idteste], references: [idteste], onDelete: Restrict, onUpdate: Restrict, map: "perfil_vocacional_ibfk_2")
+
+  @@index([id_estudante], map: "id_estudante")
+  @@index([idteste], map: "idteste")
+}
+
+model perguntas {
+  idperguntas   Int                      @id @default(autoincrement())
+  pergunta      String?                  @db.VarChar(200)
+  tipo_pergunta perguntas_tipo_pergunta? @default(Quest_o)
+  seccao        perguntas_seccao?        @default(Comportamento)
+  alternativas  alternativas[]
+  repostas      repostas[]
+}
+
+model quantidade_ponto {
+  idquantidade                         Int                                    @id @default(autoincrement())
+  pontos                               Int?
+  curso_universitario_has_alternativas curso_universitario_has_alternativas[]
+}
+
+model repostas {
+  id_resposta    Int           @id @default(autoincrement())
+  id_alternativa Int?
+  idteste        Int?
+  idperguntas    Int?
+  perguntas      perguntas?    @relation(fields: [idperguntas], references: [idperguntas], onDelete: Restrict, onUpdate: Restrict, map: "repostas_ibfk_1")
+  alternativas   alternativas? @relation(fields: [id_alternativa], references: [id_alternativa], onDelete: Restrict, onUpdate: Restrict, map: "repostas_ibfk_2")
+  teste          teste?        @relation(fields: [idteste], references: [idteste], onDelete: Restrict, onUpdate: Restrict, map: "repostas_ibfk_3")
+
+  @@index([id_alternativa], map: "id_alternativa")
+  @@index([idperguntas], map: "idperguntas")
+  @@index([idteste], map: "idteste")
+}
+
+model saidas_profissionais {
+  id_profissao        Int                  @id @default(autoincrement())
+  profissao           String?              @db.VarChar(200)
+  descricao           String?              @db.Text
+  idcurso_U           Int?
+  curso_universitario curso_universitario? @relation(fields: [idcurso_U], references: [idcurso_U], onDelete: Restrict, onUpdate: Restrict, map: "saidas_profissionais_ibfk_1")
+
+  @@index([idcurso_U], map: "idcurso_U")
+}
+
+model teste {
+  idteste             Int                  @id @default(autoincrement())
+  data_teste          DateTime?            @db.DateTime(0)
+  idcurso_U           Int?
+  pontuacao           Int?
+  perfil_vocacional   perfil_vocacional[]
+  repostas            repostas[]
+  curso_universitario curso_universitario? @relation(fields: [idcurso_U], references: [idcurso_U], onDelete: Restrict, onUpdate: Restrict, map: "teste_ibfk_1")
+
+  @@index([idcurso_U], map: "idcurso_U")
+}
+
+model usuario {
+  iduser           Int                @id @default(autoincrement())
+  nome             String?            @db.VarChar(200)
+  senha            String?            @db.VarChar(255)
+  email            String?            @unique(map: "email") @db.VarChar(200)
+  tipo_user        usuario_tipo_user? @default(estudante)
+  ativo            usuario_ativo?     @default(ativo)
+  administrador    administrador[]
+  perfil_estudante perfil_estudante[]
+}
+
+enum administrador_nivel_acesso {
+  Administador_Geral @map("Administador Geral")
+  Gestor_de_Cursos   @map("Gestor de Cursos")
+}
+
+enum alternativas_opcao {
+  A
+  B
+  C
+  D
+}
+
+enum perguntas_tipo_pergunta {
+  Quest_o          @map("Questão")
+  M_ltipla_escolha @map("Múltipla escolha")
+}
+
+enum perfil_estudante_genero {
+  Masculino
+  Feminino
+}
+
+enum perguntas_seccao {
+  Comportamento
+  Habilidades
+  Interesses
+}
+
+enum usuario_tipo_user {
+  estudante
+  admin
+}
+
+enum usuario_ativo {
+  ativo
+  n_o_ativo @map("não ativo")
+}
