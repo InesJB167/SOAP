@@ -93,6 +93,7 @@ model habilidades {
   habilidade                          String?                               @db.VarChar(200)
   area                                String                                @db.VarChar(255)
   curso_universitario_has_habilidades curso_universitario_has_habilidades[]
+  perfil_estudante_has_habilidades perfil_estudante_has_habilidades[]
 }
 
 model perfil_estudante {
@@ -105,8 +106,20 @@ model perfil_estudante {
   usuario           usuario?                 @relation(fields: [iduser], references: [iduser], onDelete: Restrict, onUpdate: Restrict, map: "perfil_estudante_ibfk_1")
   curso_medio       curso_medio?             @relation(fields: [idcurso_medio], references: [idcurso_medio], onDelete: Restrict, onUpdate: Restrict, map: "perfil_estudante_ibfk_2")
   perfil_vocacional perfil_vocacional[]
+  perfil_estudante_has_habilidades perfil_estudante_has_habilidades[]
 
   @@index([idcurso_medio], map: "idcurso_medio")
+}
+
+model perfil_estudante_has_habilidades{
+  id_estudante Int
+  idhabilidade Int
+  perfil_estudante perfil_estudante @relation(fields: [id_estudante], references: [id_estudante], onDelete: Restrict, onUpdate: Restrict, map: "perfil_estudante_phfk_1")
+  habilidades habilidades @relation(fields: [idhabilidade], references: [idhabilidade], onDelete: Restrict, onUpdate: Restrict, map: "habilidades_phfk_2")
+
+  @@id([id_estudante,idhabilidade])
+  @@index([idhabilidade], map: "idhabilidade")
+  @@index([id_estudante], map: "id_estudante")
 }
 
 model perfil_vocacional {

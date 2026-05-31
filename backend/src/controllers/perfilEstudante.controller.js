@@ -8,6 +8,8 @@ export const perfil_estudante = async (req, res) => {
     const nome = req.body.nome;
     const genero = req.body.genero;
     const idcurso_medio = req.body.idcurso_medio;
+    //para receber os dados que vao para o model perfil_estudante_has_habilidades
+    const idhabilidade = req.body.idhabilidade;
 
     if (!nome || !genero || !idcurso_medio) {
         return res.status(400).json({
@@ -16,7 +18,7 @@ export const perfil_estudante = async (req, res) => {
     }
     console.log("idUser logado ",iduser ,"tipo -",typeof iduser)
     try {
-        const novo_perfil = await criarPerfil_estudante(iduser, nome, genero, idcurso_medio);
+        const novo_perfil = await criarPerfil_estudante(iduser, nome, genero, idcurso_medio,idhabilidade);
         if (novo_perfil.success === false) {
             return res.status(400).json({
                 message: novo_perfil.message
