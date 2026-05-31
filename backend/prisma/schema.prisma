@@ -98,16 +98,15 @@ model habilidades {
 model perfil_estudante {
   id_estudante      Int                      @id @default(autoincrement())
   nome              String?                  @db.VarChar(200)
-  data_cadastro     DateTime?                @db.DateTime(0)
+  data_cadastro     DateTime                 @default(now())
   genero            perfil_estudante_genero? @default(Masculino)
-  iduser            Int?
+  iduser            Int?                     @unique
   idcurso_medio     Int?
   usuario           usuario?                 @relation(fields: [iduser], references: [iduser], onDelete: Restrict, onUpdate: Restrict, map: "perfil_estudante_ibfk_1")
   curso_medio       curso_medio?             @relation(fields: [idcurso_medio], references: [idcurso_medio], onDelete: Restrict, onUpdate: Restrict, map: "perfil_estudante_ibfk_2")
   perfil_vocacional perfil_vocacional[]
 
   @@index([idcurso_medio], map: "idcurso_medio")
-  @@index([iduser], map: "iduser")
 }
 
 model perfil_vocacional {
@@ -182,7 +181,7 @@ model usuario {
   tipo_user        usuario_tipo_user? @default(estudante)
   ativo            usuario_ativo?     @default(ativo)
   administrador    administrador[]
-  perfil_estudante perfil_estudante[]
+  perfil_estudante perfil_estudante?
 }
 
 enum administrador_nivel_acesso {

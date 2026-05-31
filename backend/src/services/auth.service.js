@@ -2,7 +2,7 @@ import jsonwebtoken from "jsonwebtoken";
 import bcryptjs from 'bcryptjs';
 import prisma from '../../prisma/prisma.js';
 
-export const loginUser = async (email, senha) => {
+export const loginUser = async (email, senha,nome) => {
     const user = await prisma.usuario.findUnique({
         where: {email: email}
     })
@@ -13,7 +13,7 @@ export const loginUser = async (email, senha) => {
             message: "Usuário nao encontrado!"
         }
     }
-
+    console.log("User que esta logando: ",user)
     const verificarSenha = await bcryptjs.compare(senha,user.senha);
 
     if(!verificarSenha){
@@ -26,7 +26,8 @@ export const loginUser = async (email, senha) => {
     const payload = {
         iduser:user.iduser,
         email:user.email,
-        tipo_user:user.tipo_user
+        tipo_user:user.tipo_user,
+        nome:user.nome
     }
     const secret = process.env.JWT_SECRET;
     const options = {
@@ -36,7 +37,9 @@ export const loginUser = async (email, senha) => {
 
     return {
         success: true,
-        message: token
+        token: token ,
+        tipo_user: user.tipo_user,
+        nome:user.nome
     }
 
 }
