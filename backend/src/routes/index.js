@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.use("/" ,registerRoutes);
 router.use("/", authRoutes);
+
 router.use("/", perfil_estudanteRoutes);
 
 export default router

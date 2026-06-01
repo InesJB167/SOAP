@@ -103,6 +103,7 @@ model perfil_estudante {
   genero            perfil_estudante_genero? @default(Masculino)
   iduser            Int?                     @unique
   idcurso_medio     Int?
+  ano               ano_atual?               @default(Primeiro_ano)
   usuario           usuario?                 @relation(fields: [iduser], references: [iduser], onDelete: Restrict, onUpdate: Restrict, map: "perfil_estudante_ibfk_1")
   curso_medio       curso_medio?             @relation(fields: [idcurso_medio], references: [idcurso_medio], onDelete: Restrict, onUpdate: Restrict, map: "perfil_estudante_ibfk_2")
   perfil_vocacional perfil_vocacional[]
@@ -233,4 +234,11 @@ enum usuario_tipo_user {
 enum usuario_ativo {
   ativo
   n_o_ativo @map("não ativo")
+}
+
+enum ano_atual {
+  Primeiro_ano @map("Primeiro ano")
+  Segundo_ano @map("Segundo ano")
+  Terceiro_ano @map("Terceiro ano")
+  Quarto_ano @map("Quarto ano")
 }

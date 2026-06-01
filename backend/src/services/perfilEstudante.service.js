@@ -58,3 +58,46 @@ export const criarPerfil_estudante = async (iduser, nome, genero, idcurso_medio,
     }
 
 }
+
+export const visualizar_perfil = async (iduser)=>{
+
+    const estudante_perfil = await prisma.perfil_estudante.findUnique({
+        where: {
+            iduser: iduser
+        },
+        // *buscar os dados do perfil do usario incluindo o ano que ele esta 
+         
+        include:{
+            curso_medio:{
+                select:{
+                    idcurso_medio: true,
+                    nome_cursoM: true,
+                    descricao: true
+                }
+            },
+            perfil_estudante_has_habilidades:{
+                include:{
+                    habilidades:{
+                        select:{
+                            idhabilidade: true,
+                            habilidade: true
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    if(!estudante_perfil){
+        return {
+            success: false,
+            message: "Erro ao buscar perfil!"
+        }
+    }
+
+    return {
+        success: true,
+        message: "Perfil encontrado:",
+        perfil: estudante_perfil
+    } 
+}
